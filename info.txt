@@ -1,0 +1,13 @@
+Сайт: https://restful-api.dev/
+
+GET: List of all objects
+https://api.restful-api.dev/objects
+
+GET: List of objects by ids
+https://api.restful-api.dev/objects?id=3&id=5&id=10
+
+GET: Single object
+https://api.restful-api.dev/objects/7
+
+POST: Add object
+https://api.restful-api.dev/objects
