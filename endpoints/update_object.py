@@ -1,9 +1,8 @@
 import requests
 from faker import Faker
+from endpoints.base_endpoints import BaseEndpoint
 
-class UpdateObject:
-    response = None
-    response_json = None
+class UpdateObject(BaseEndpoint):
     payload = None
 
     def update_object(self, obj_id):
@@ -23,14 +22,10 @@ class UpdateObject:
                                      json=self.payload)
         self.response_json = self.response.json()
 
-    def check_response_is_200(self):
-        assert self.response.status_code == 200
-
     def check_id(self, obj_id):
         assert self.response_json["id"] == obj_id
 
     def check_data_without_id(self):
         del self.response_json["id"]
         del self.response_json["updatedAt"]
-        # print(f"=========self.response_json=========\n{self.response_json}")
         assert self.response_json == self.payload
