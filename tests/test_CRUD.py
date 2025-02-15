@@ -1,5 +1,7 @@
 import requests
 import pytest
+from endpoints.create_object import CreateObject
+from endpoints.get_object import GetObject
 from endpoints.update_object import UpdateObject
 from endpoints.delete_object import DeleteObject
 
@@ -15,18 +17,16 @@ payload = {
 
 @pytest.mark.test_01
 def test_create():
-    response = requests.post("https://api.restful-api.dev/objects", json=payload)
-    response_json = response.json()
-    assert response.status_code == 200
-    odj_name = response_json["name"]
-    assert payload["name"] == odj_name
+    create_object_endpoint = CreateObject()
+    create_object_endpoint.create_object(payload)
+    create_object_endpoint.check_response_is_200()
 
 @pytest.mark.test_02
 def test_get_object(obj_id):
-    response = requests.get(f"https://api.restful-api.dev/objects/{obj_id}")
-    response_json = response.json()
-    assert response.status_code == 200
-    assert response_json["id"] == obj_id
+    get_object_endpoint = GetObject()
+    get_object_endpoint.get_object(obj_id=obj_id)
+    get_object_endpoint.check_response_is_200()
+    get_object_endpoint.check_obj_id(obj_id=obj_id)
 
 @pytest.mark.test_03
 def test_update_object(obj_id):
@@ -36,7 +36,7 @@ def test_update_object(obj_id):
     update_object_endpoint.check_id(obj_id)
     update_object_endpoint.check_data_without_id()
 
-
+@pytest.mark.test_04
 def test_delete(obj_id):
     delete_object_endpoint = DeleteObject()
     delete_object_endpoint.delete_object(obj_id=obj_id)
