@@ -1,5 +1,5 @@
 import requests
-from endpoints.base_endpoint import BaseEndpoint
+from base_endpoint import BaseEndpoint
 
 class CreateObject(BaseEndpoint):
     def crete_object(self, payload):

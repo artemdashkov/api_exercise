@@ -1,6 +1,8 @@
 import pytest
 import requests
 
+from endpoints.create_endpoint import CreateObject
+
 @pytest.fixture(name="obj_id")
 def create_and_delete():
     payload = {
@@ -13,9 +15,8 @@ def create_and_delete():
         }
     }
 
-    response = requests.post(url="https://api.restful-api.dev/objects",
-                             json=payload)
-    response_json = response.json()
-    id = response_json["id"]
-    yield id
-    requests.delete(url=f"https://api.restful-api.dev/objects/{id}")
+    create_object_endpoint = CreateObject()
+    create_object_endpoint.crete_object(payload)
+    object_id = create_object_endpoint.response_json["id"]
+    yield object_id
+    requests.delete(url=f"https://api.restful-api.dev/objects/{object_id}")

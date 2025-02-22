@@ -9,4 +9,3 @@ class GetObject(BaseEndpoint):
 
     def check_object_id(self, obj_id):
         assert self.response_json["id"] == obj_id
-
