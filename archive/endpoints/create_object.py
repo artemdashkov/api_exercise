@@ -1,5 +1,5 @@
 import requests
-from endpoints.base_endpoints import BaseEndpoint
+from archive.endpoints.base_endpoints import BaseEndpoint
 
 class CreateObject(BaseEndpoint):
 

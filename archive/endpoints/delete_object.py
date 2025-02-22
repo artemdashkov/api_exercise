@@ -1,5 +1,5 @@
 import requests
-from base_endpoint import BaseEndpoint
+from archive.endpoints.base_endpoints import BaseEndpoint
 
 class DeleteObject(BaseEndpoint):
 

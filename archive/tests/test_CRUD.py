@@ -1,9 +1,8 @@
-import requests
 import pytest
-from endpoints.create_object import CreateObject
-from endpoints.get_object import GetObject
-from endpoints.update_object import UpdateObject
-from endpoints.delete_object import DeleteObject
+from archive.endpoints.create_object import CreateObject
+from archive.endpoints.get_object import GetObject
+from archive.endpoints.update_object import UpdateObject
+from archive.endpoints.delete_object import DeleteObject
 
 payload = {
         "name": "Apple MacBook Pro 16",

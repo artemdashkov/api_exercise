@@ -1,10 +1,8 @@
-import requests
 import pytest
-from endpoints.create_object import CreateObject
-from endpoints.delete_object import DeleteObject
+import requests
 
 @pytest.fixture(name="obj_id")
-def create_delete_obj():
+def create_and_delete():
     payload = {
         "name": "Apple MacBook Pro 16",
         "data": {
@@ -15,9 +13,9 @@ def create_delete_obj():
         }
     }
 
-    create_obj_endpoints = CreateObject()
-    create_obj_endpoints.create_object(payload)
-    id = create_obj_endpoints.response_json["id"]
+    response = requests.post(url="https://api.restful-api.dev/objects",
+                             json=payload)
+    response_json = response.json()
+    id = response_json["id"]
     yield id
-    delete_obj_endpoints = DeleteObject()
-    delete_obj_endpoints.delete_object(id)
+    requests.delete(url=f"https://api.restful-api.dev/objects/{id}")

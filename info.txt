@@ -2,7 +2,7 @@
     https://restful-api.dev/
 
 need to create check all steps for CRUD:
-    C:  create object
+    C: create object
     R: read object
     U: update object
     D: delete object
