@@ -7,9 +7,6 @@ class GetObject(BaseEndpoint):
         self.response = requests.get(url=f"https://api.restful-api.dev/objects/{obj_id}")
         self.response_json = self.response.json()
 
-    def check_status_is_404(self):
-        assert self.response.status_code == 404
-
     def check_object_id(self, obj_id):
         assert self.response_json["id"] == obj_id
 
