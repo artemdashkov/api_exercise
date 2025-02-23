@@ -1,5 +1,5 @@
 import requests
-from base_endpoint import BaseEndpoint
+from endpoints.base_endpoint import BaseEndpoint
 
 class DeleteObject(BaseEndpoint):
 

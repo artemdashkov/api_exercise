@@ -1,4 +1,3 @@
-import requests
 from endpoints.get_object import GetObject
 from endpoints.update_object import UpdateObject
 from endpoints.delete_object import DeleteObject
