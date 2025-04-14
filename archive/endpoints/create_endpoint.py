@@ -1,9 +1,9 @@
 import requests
-from archive.endpoints.base_endpoints import BaseEndpoint
+from archive.endpoints.base_endpoint import BaseEndpoint
 
 class CreateObject(BaseEndpoint):
 
-    def create_object(self, payload):
+    def crete_object(self, payload):
         self.response = requests.post("https://api.restful-api.dev/objects",
-                                 json=payload)
+                                      json=payload)
         self.response_json = self.response.json()

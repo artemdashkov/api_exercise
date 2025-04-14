@@ -2,8 +2,8 @@ class BaseEndpoint:
     response = None
     response_json = None
 
-    def status_is_200(self):
+    def check_status_is_200(self):
         assert self.response.status_code == 200
 
-    def status_is_404(self):
+    def check_status_is_404(self):
         assert self.response.status_code == 404
